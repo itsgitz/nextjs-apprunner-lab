@@ -2,17 +2,11 @@ version: 1.0
 runtime: nodejs22
 build:
     commands:
-        pre-build:
-            - npm ci --production=false
         build:
+            - npm install
             - npm run build
-        post-build:
-            # Copy public folder to the project root level (parent of standalone)
-            - cp -r public .next/standalone/../
-            # Copy static folder to .next at project root level
-            - cp -r .next/static .next/standalone/../.next/
 run:
-    command: node .next/standalone/server.js
+    command: npm run start
     network:
         port: 3000
     env:
