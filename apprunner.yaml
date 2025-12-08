@@ -2,12 +2,8 @@ version: 1.0
 runtime: nodejs22
 build:
     commands:
-        pre-install:
-            - echo "Installing dependencies..."
-        install:
-            - npm ci --production=false
         pre-build:
-            - echo "Running build process..."
+            - npm ci --production=false
         build:
             - npm run build
         post-build:
